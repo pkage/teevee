@@ -1,0 +1,231 @@
+body {
+    font-family: 'Fira Code Mono', 'Fira Code', "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+	background-color: #282828;
+	color: #fbf1c7;
+	margin: 0;
+}
+
+#lock {
+	min-height: 100vh;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	color: #d5c4a1;
+	font-size: 0.7rem;
+
+}
+
+#lock > p {
+	margin-bottom: 0;
+
+	transition: color 0.3s cubic-bezier(0,0,0.3,1);
+}
+
+#pwbox {
+	color: inherit;
+
+	outline: 0;
+	background: none;
+
+	border: 0;
+	border-bottom: 1px solid #fbf1c7;
+	font-size: 2rem;
+	width: 10rem;
+
+	transition: color 0.3s cubic-bezier(0,0,0.3,1);
+	transition: border-bottom 0.3s cubic-bezier(0,0,0.3,1);
+}
+
+#lock.invalid {
+	color: #fb4934;
+
+}
+#lock.invalid > #pwbox {
+	color: #fb4934 !important;
+	border-bottom: 1px solid #fb4934 !important;
+}
+
+#lock.valid {
+	color: #b8bb26 !important;
+
+	animation: 1s fadeout 0.5s cubic-bezier(0,0,0.3,1);
+	animation-fill-mode: forwards;
+}
+
+#lock.valid > #pwbox {
+	color: #b8bb26;
+	border-bottom: 1px solid #b8bb26;
+}
+
+#intro {
+	position: absolute;
+	left: 48%;
+	right: 48%;
+	bottom: 48%;
+	top: 48%;
+
+	border: 2px solid #83a598;
+
+	animation: 1.5s appear 0s ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes appear {
+	0% {
+		left: 49%;
+		right: 49%;
+		bottom: 49%;
+		top: 49%;
+	}
+
+	25% {
+		left: 15px;
+		right: 15px;
+		bottom: 15px;
+		top: 15px;
+
+	}
+	30% {
+		opacity: 1;
+	}
+	35% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 1;
+	}
+	45% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	55% {
+		opacity: 0;
+	}
+	60% {
+		opacity: 1;
+	}
+	65% {
+		opacity: 0;
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		left: 15px;
+		right: 15px;
+		bottom: 15px;
+		top: 15px;
+	}
+}
+
+@keyframes fadeout {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+
+.container {
+    margin: 30px;
+}
+.video-list {
+    margin: 0;
+    padding: 0;
+}
+
+.video-list__item {
+    list-style-type: none;
+    padding: 2px;
+    margin: 0;
+
+	transition: background-color 0.1s cubic-bezier(0,0,0.3,1);
+}
+
+.video-list__item:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.video-list__item > a {
+    display: block;
+	color: #fbf1c7;
+    text-decoration: none;
+}
+
+.video-list__item > a::after {
+    padding-left: 1em;
+    content: 'watch now';
+    opacity: 0;
+	transition: opacity 0.1s cubic-bezier(0,0,0.3,1);
+}
+.video-list__item:hover > a::after {
+    opacity: 0.5;
+}
+
+.viewer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+}
+
+.viewer {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+
+.viewer > video {
+    max-width: 90vw;
+}
+
+@media (min-width: 768px) {
+    .viewer > video {
+        max-width: 60vw;
+    }
+}
+
+.viewer__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 0.8em;
+
+    padding: 5px 0 5px 0;
+}
+
+.viewer__info--reverse {
+    justify-content: flex-end;
+}
+
+.viewer__stat {
+    margin-right: 0.5em;
+}
+.viewer__stat::after {
+    padding-left: 0.5em;
+    content: "\2022";
+}
+
+.viewer__stat:last-child::after {
+    padding-left: 0;
+    content: "";
+}
+
+.viewer__info--start {
+    background-color: #cc241d;
+    cursor: pointer;
+}
