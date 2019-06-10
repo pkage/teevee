@@ -48,7 +48,9 @@ class VideoController {
 
     sendSync() {
         this.video.currentTime = this.video.currentTime
-        this.video.pause()
+        if (!this.video.paused) {
+            this.video.pause()
+        }
     }
 
     /* --- commands --- */
