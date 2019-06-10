@@ -20,7 +20,7 @@ app.use(session({
     cookie: { expires: 12 * 60 * 60 * 1000 } // 12 hours
 }))
 let ensureAuth = (req, res, next) => {
-    if (false && !req.session.authenticated) {
+    if (!req.session.authenticated) {
         res.redirect('/')
         return
     }
