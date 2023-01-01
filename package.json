@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/pkage/teevee#readme",
   "dependencies": {
-    "config": "^3.1.0",
+    "config": "^3.3.8",
     "ejs": "^2.6.1",
     "express": "^4.17.1",
     "express-session": "^1.16.1",
